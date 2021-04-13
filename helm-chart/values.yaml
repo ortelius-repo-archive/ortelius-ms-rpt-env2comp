@@ -1,0 +1,44 @@
+nameOverride: ""
+fullnameOverride: ""
+
+replicaCount: 1
+
+image:
+  # TODO - update image params when image is pushed to repo.
+  repository: quay.io/ortelius/ms-rpt-env2comp
+  #digest: 
+  tag: dev-v9.0.0.10-gc0a82a4
+
+service:
+  type: ClusterIP
+  portName: env2comp-port
+  exposedPort: 5000
+  targetPort: 5000
+
+envVars: {}
+  # DB_HOST: "localhost"
+  # DB_NAME: "postgres"
+
+secrets: {}
+  # env2comp-db-creds:
+  #   data:
+  #     DB_USER: "postgres"
+  #     DB_PASS: "postgres"
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+livenessProbe: {}
+  # httpGet:
+  #   path: /msapi/env2comp
+  #   port: env2comp-port
+
+readinessProbe:
+  # httpGet:
+  #   path: /msapi/env2comp
+  #   port: env2comp-port
